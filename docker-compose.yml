@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URI=mongodb+srv://ahmed:ahmed@cluster0.xcy71ll.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+  mongo:
+    image: mongo
+    restart: always
